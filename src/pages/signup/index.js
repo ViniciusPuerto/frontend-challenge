@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import { 
-        Container, 
-        RightColumn, 
-        SignUpLogo, 
-        LeftColumn, 
-        SignTitle, 
-        Subtitle, 
-        FormArea, 
-        NamesRow, 
-        NameInput, 
-        NameLabel,
-        EmailRow,
-        EmailLabel,
-        EmailInput,
-        PasswordRow,
-        PasswordLabel,
-        PasswordInput
-     } from './styles';
+import {
+    Container,
+    RightColumn,
+    SignUpLogo,
+    LeftColumn,
+    SignTitle,
+    Subtitle,
+    FormArea,
+    NamesRow,
+    NameInput,
+    NameLabel,
+    EmailRow,
+    EmailLabel,
+    EmailInput,
+    PasswordRow,
+    PasswordLabel,
+    PasswordInput
+} from './styles';
+import Modal from "./Components/modal"
 import cookLogo from "./assets/cooking.png"
 import { RemoveRedEye } from '@material-ui/icons';
+import Lottie from 'react-lottie';
+import cooker from './assets/panela.json'
 
 class Signup extends Component {
     constructor() {
@@ -28,53 +31,71 @@ class Signup extends Component {
             name: "",
             password: "",
             confirmPassword: "",
-            passwordIsMasked: true
+            passwordIsMasked: true,
+            welcomeModelIsOpen: false,
+            isPaused: false,
+            isStopped: false
         }
     }
 
     changeNameHandler = event => {
         this.setState({
-          name: event.target.value
+            name: event.target.value
         });
 
         console.log(this.state.name)
-      }
+    }
 
 
-      changeEmailHandler = event => {
+    changeEmailHandler = event => {
         this.setState({
-          email: event.target.value
+            email: event.target.value
         });
 
         console.log(this.state.email)
-      }
+    }
 
-      changePasswordHandler = event => {
+    changePasswordHandler = event => {
         this.setState({
-          password: event.target.value
+            password: event.target.value
         });
 
         console.log(this.state.password)
-      }
+    }
 
-      changeConfirmPasswordHandler = event => {
+    changeConfirmPasswordHandler = event => {
         this.setState({
-          confirmPassword: event.target.value
+            confirmPassword: event.target.value
         });
 
         console.log(this.state.confirmPassword)
-      }
+    }
 
-      togglePasswordMask = () => {
-          this.setState(prevState => ({
-              passwordIsMasked: !prevState.passwordIsMasked,
-          }))
-      }
+    togglePasswordMask = () => {
+        this.setState(prevState => ({
+            passwordIsMasked: !prevState.passwordIsMasked,
+        }))
+    }
+
+    toggleSignUpModal = () => {
+        this.setState({
+            welcomeModelIsOpen: true
+        })
+    }
+
     render() {
+        const defaultOptions = {
+            loop: true,
+            autoplay: true,
+            animationData: cooker,
+           
+        };
+
         return (
             <Container>
                 <RightColumn>
                     <SignUpLogo src={cookLogo} />
+                    
                 </RightColumn>
                 <LeftColumn>
                     <SignTitle> Seja bem-vindo ao RecipeX </SignTitle>
@@ -99,7 +120,7 @@ class Signup extends Component {
                             <EmailLabel>
                                 Qual seu email:
                             </EmailLabel>
-                            <EmailInput 
+                            <EmailInput
                                 type="email"
                                 name="email"
                                 value={this.state.email}
@@ -110,26 +131,34 @@ class Signup extends Component {
                             <PasswordLabel>
                                 Senha:
                             </PasswordLabel>
-                            <PasswordInput 
+                            <PasswordInput
                                 type={this.state.passwordIsMasked ? 'password' : 'text'}
                                 name="password"
                                 value={this.state.password}
-                                onChange={this.changePasswordHandler}/>
-                                <RemoveRedEye
-                                    color={this.state.passwordIsMasked ? "disabled" :  ""}
-                                    onClick={this.togglePasswordMask}
-                                />
-                        </PasswordRow>
+                                onChange={this.changePasswordHandler} />
+                            <RemoveRedEye
+                                color={this.state.passwordIsMasked ? "disabled" : ""}
+                                onClick={this.togglePasswordMask}
+                            />
+                        </PasswordRow>                      
                         <PasswordRow>
                             <PasswordLabel>
                                 Confirmar Senha:
                             </PasswordLabel>
-                            <PasswordInput 
+                            <PasswordInput
                                 type="password"
                                 name="password"
                                 value={this.state.confirmPassword}
-                                onChange={this.changeConfirmPasswordHandler}/>
+                                onChange={this.changeConfirmPasswordHandler} />
                         </PasswordRow>
+                        <Lottie 
+                            width={400}
+                            options={defaultOptions}
+                            isStopped={this.state.isStopped}
+                            isPaused={this.state.isPaused} />  
+                        <Modal show={this.state.welcomeModelIsOpen}>
+                            Contentt
+                        </Modal>
                     </FormArea>
                 </LeftColumn>
             </Container>
