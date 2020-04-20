@@ -35,6 +35,8 @@ export const SignUpLogo = styled.img`
 `;
 
 export const LeftColumn = styled.div`
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 55%;
   position: fixed;
@@ -45,3 +47,42 @@ export const LeftColumn = styled.div`
   right: 0;
   background-color: white;
 `
+
+export const SignTitle = styled.p`
+    font-weight: bold;
+    font-size: 4vh;
+    align-self: flex-start;
+    margin-left: 10%;
+    margin-bottom: 1%
+`;
+
+export const Subtitle = styled.p`
+    font-weight: bold;
+    font-size: 2vh;
+    align-self: flex-start;
+    margin-left: 10%;
+    color: lightgray;
+    text-align: justify;
+    text-align-last: left
+`;
+
+export const FormArea = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: center;
+    border: 2px solid red;
+    width: 90%;
+    height: 70%;
+    margin: 5%
+`
+
+export const NamesRow = styled.div`
+    flex-direction: row;
+    border: 3px solid blue;
+    align-self: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    padding: 5%
+`;
