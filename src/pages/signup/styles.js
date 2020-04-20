@@ -45,7 +45,7 @@ export const LeftColumn = styled.div`
   overflow-x: hidden;
   padding-top: 20px;
   right: 0;
-  background-color: white;
+  background-color: #FAFAFA;
 `
 
 export const SignTitle = styled.p`
@@ -53,7 +53,8 @@ export const SignTitle = styled.p`
     font-size: 4vh;
     align-self: flex-start;
     margin-left: 10%;
-    margin-bottom: 1%
+    margin-bottom: 1%;
+    color: #2D292D;
 `;
 
 export const Subtitle = styled.p`
@@ -61,28 +62,122 @@ export const Subtitle = styled.p`
     font-size: 2vh;
     align-self: flex-start;
     margin-left: 10%;
-    color: lightgray;
+    color:  #A9A0B6;
     text-align: justify;
     text-align-last: left
 `;
 
-export const FormArea = styled.div`
+export const FormArea = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-self: center;
-    border: 2px solid red;
     width: 90%;
     height: 70%;
-    margin: 5%
+    margin-left: 10%;
 `
 
 export const NamesRow = styled.div`
-    flex-direction: row;
-    border: 3px solid blue;
-    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
-    width: 100%;
-    height: auto;
-    padding: 5%
+    padding-top: 3%
+`;
+
+export const NameLabel = styled.label`
+    font-weight: bold;
+    font-size: 1.5vh;
+    align-self: flex-start;
+    color: #2D292D;
+`;
+
+export const NameInput = styled.input`
+    align-self: flex-start;
+    background-color: lightgrey;
+    border: 2px solid #F1B1D4;
+    height: 100%;
+    width: 50%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding-inline: 15px;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    margin-top: 1%;
+    &:focus {
+        background-color: white;
+        width: 90%
+    }
+`;
+
+export const EmailRow = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 3%
+`;
+
+export const EmailLabel = styled.label`
+    font-weight: bold;
+    font-size: 1.5vh;
+    align-self: flex-start;
+    color: #2D292D;
+`;
+
+export const EmailInput = styled.input`
+    align-self: flex-start;
+    background-color: lightgrey;
+    border: 2px solid #F1B1D4;
+    height: 100%;
+    width: 50%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding-inline: 15px;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    margin-top: 1%;
+    &:focus {
+        background-color: white;
+        width: 90%
+    }
+`;
+
+export const PasswordRow = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 3%
+`;
+
+export const PasswordLabel = styled.label`
+    font-weight: bold;
+    font-size: 1.5vh;
+    align-self: flex-start;
+    color: #2D292D;
+`;
+
+export const PasswordInput = styled.input`
+    align-self: flex-start;
+    background-color: lightgrey;
+    border: 2px solid #F1B1D4;
+    height: 100%;
+    width: 50%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding-inline: 15px;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    margin-top: 1%;
+    &:focus {
+        background-color: white;
+        width: 90%
+    }
 `;
