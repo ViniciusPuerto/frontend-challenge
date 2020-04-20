@@ -18,7 +18,7 @@ import {
         PasswordInput
      } from './styles';
 import cookLogo from "./assets/cooking.png"
-
+import { RemoveRedEye } from '@material-ui/icons';
 
 class Signup extends Component {
     constructor() {
@@ -28,7 +28,7 @@ class Signup extends Component {
             name: "",
             password: "",
             confirmPassword: "",
-            passwordIsMasked: false
+            passwordIsMasked: true
         }
     }
 
@@ -65,10 +65,10 @@ class Signup extends Component {
         console.log(this.state.confirmPassword)
       }
 
-      maskPassword = () => {
-          this.setState({
-              passwordIsMasked = !prevState.passwordIsMasked,
-          })
+      togglePasswordMask = () => {
+          this.setState(prevState => ({
+              passwordIsMasked: !prevState.passwordIsMasked,
+          }))
       }
     render() {
         return (
@@ -111,10 +111,14 @@ class Signup extends Component {
                                 Senha:
                             </PasswordLabel>
                             <PasswordInput 
-                                type={passwordIsMasked ? 'password' : 'text'}
+                                type={this.state.passwordIsMasked ? 'password' : 'text'}
                                 name="password"
                                 value={this.state.password}
                                 onChange={this.changePasswordHandler}/>
+                                <RemoveRedEye
+                                    color={this.state.passwordIsMasked ? "disabled" :  ""}
+                                    onClick={this.togglePasswordMask}
+                                />
                         </PasswordRow>
                         <PasswordRow>
                             <PasswordLabel>
